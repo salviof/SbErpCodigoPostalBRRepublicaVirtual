@@ -1,12 +1,11 @@
 package br.org.coletivoJava.fw.erp.implementacao.codigopostalbr;
 
-import br.org.coletivoJava.fw.api.erp.codigoPostal.br.ItfCodigoPostalBR;
-import br.org.coletivoJava.fw.api.erp.codigopostalbr.GatewayPgtoRepublicaVirutal;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.ItfLocal;
 import java.util.List;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.ItfLocal;
+import br.org.coletivoJava.fw.api.erp.codigopostalbr.CodigoPostalBRRepublicaVirutal;
 
-@GatewayPgtoRepublicaVirutal
-public class GatewayPgtoRepublicaVirutalimpl implements ItfCodigoPostalBR {
+@CodigoPostalBRRepublicaVirutal
+public class CodigoPostalBRRepublicaVirutalimpl implements br.org.coletivoJava.fw.api.erp.codigoPostal.br.ItfCodigoPostalBR {
 
     @Override
     public boolean configuraEndereco(String cep, ItfLocal pLocal) {
@@ -28,4 +27,8 @@ public class GatewayPgtoRepublicaVirutalimpl implements ItfCodigoPostalBR {
         throw new UnsupportedOperationException("O METODO AINDA N\u00c3O FOI IMPLEMENTADO.");
     }
 
+    @Override
+    public boolean cepExiste(String pCep) {
+        return UtilSBCoreCEP.cepExiste(pCep);
+    }
 }
