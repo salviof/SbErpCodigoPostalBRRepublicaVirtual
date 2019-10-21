@@ -4,6 +4,7 @@
  */
 package br.org.coletivoJava.fw.erp.implementacao.codigopostalbr;
 
+import br.org.coletivoJava.fw.api.erp.codigopostalbr.InfoRespostaCepWebService;
 import br.org.coletivoJava.fw.erp.implementacao.codigopostalbr.apiClients.UtilWebService.cep.WebServiceCepRepublicaVirtual;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.ItfLocal;
@@ -16,7 +17,7 @@ import java.util.List;
  *
  * @author desenvolvedor
  */
-public abstract class UtilSBCoreCEP {
+public abstract class UtilSBCoreCEPRepublicaVirtual {
 
     /**
      *
@@ -31,24 +32,10 @@ public abstract class UtilSBCoreCEP {
             WebServiceCepRepublicaVirtual republicaVirtual = WebServiceCepRepublicaVirtual.searchCep(cep);
 
             if (!republicaVirtual.isCepNotFound()) {
-                //ItfBairro bairroEncontrao = new ItemBairro(republicaVirtual);
-                try {
-                    pLocal.prepararNovoObjeto();
-                } catch (Throwable t) {
-                    SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "Erro preparando Objeto para configuração de cep", t);
-                }
-                pLocal.setNome(republicaVirtual.getLogradouroFull());
-                try {
-                    pLocal.getComoLocalPostavel().setLogradouro(republicaVirtual.getLogradouroFull());
-                } catch (Throwable t) {
+                InfoRespostaCepWebService infoCep = new InfoRespostaCepWebService(republicaVirtual.getUf(),
+                        republicaVirtual.getCidade(), republicaVirtual.getBairro(), republicaVirtual.getLogradouroFull());
 
-                }
-                pLocal.getBairro().setNome(republicaVirtual.getBairro());
-
-                pLocal.getBairro().getCidade().setNome(republicaVirtual.getCidade());
-                pLocal.getBairro().getCidade().getUnidadeFederativa().setNome(republicaVirtual.getUf());
-                pLocal.getBairro().getCidade().getUnidadeFederativa().setSigla(republicaVirtual.getUf());
-
+                infoCep.applicarDados(pLocal);
                 return true;
             } else {
                 System.out.println("local:" + pLocal);
