@@ -3,6 +3,7 @@ package br.org.coletivoJava.fw.erp.implementacao.codigopostalbr;
 import java.util.List;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.ItfLocal;
 import br.org.coletivoJava.fw.api.erp.codigopostalbr.CodigoPostalBRRepublicaVirutal;
+import br.org.coletivoJava.fw.api.erp.codigopostalbr.InfoRespostaCepWebService;
 
 @CodigoPostalBRRepublicaVirutal
 public class CodigoPostalBRRepublicaVirutalimpl implements br.org.coletivoJava.fw.api.erp.codigoPostal.br.ItfCodigoPostalBR {
@@ -28,7 +29,13 @@ public class CodigoPostalBRRepublicaVirutalimpl implements br.org.coletivoJava.f
     }
 
     @Override
-    public boolean cepExiste(String pCep) {
+    public boolean isCepExiste(String pCep) {
         return UtilSBCoreCEPRepublicaVirtual.cepExiste(pCep);
     }
+
+    @Override
+    public InfoRespostaCepWebService getInfoRespostaWebService(String cep) {
+        throw new UnsupportedOperationException("O METODO AINDA N\u00c3O FOI IMPLEMENTADO.");
+    }
+
 }
