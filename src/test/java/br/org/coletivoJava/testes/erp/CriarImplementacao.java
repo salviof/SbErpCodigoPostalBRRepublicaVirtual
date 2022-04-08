@@ -10,7 +10,7 @@ import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 import org.junit.Test;
-import testesFW.geradorDeCodigo.erp.GeradorERPImplementacaoContexto;
+//import testesFW.geradorDeCodigo.erp.GeradorERPImplementacaoContexto;
 
 /**
  *
@@ -23,7 +23,7 @@ public class CriarImplementacao {
 
         try {
             SBCore.configurar(new ConfigCoreApiErpCodigoPostal(), SBCore.ESTADO_APP.DESENVOLVIMENTO);
-            new GeradorERPImplementacaoContexto(ERPCodigoPostalBR.REPUBLICA_VIRUTAL).salvarEmDiretorioPadraCASO_NAO_EXISTA();
+            //     new GeradorERPImplementacaoContexto(ERPCodigoPostalBR.REPUBLICA_VIRUTAL).salvarEmDiretorioPadraCASO_NAO_EXISTA();
         } catch (Throwable t) {
             LogManager.getLogger(LogPadraoSB.class).error("Erro Criando anotações", t);
         }
