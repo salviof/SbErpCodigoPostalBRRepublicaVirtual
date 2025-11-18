@@ -6,9 +6,7 @@ package br.org.coletivoJava.fw.erp.implementacao.codigopostalbr;
 
 import br.org.coletivoJava.fw.api.erp.codigopostalbr.InfoRespostaCepWebService;
 import br.org.coletivoJava.fw.erp.implementacao.codigopostalbr.apiClients.UtilWebService.cep.WebServiceCepRepublicaVirtual;
-import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.ItfLocal;
-import org.coletivojava.fw.api.tratamentoErros.FabErro;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.cep.ComoLocal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +25,7 @@ public abstract class UtilSBCoreCEPRepublicaVirtual {
      * @param pLocal O local onde o endereço será configurado
      * @return True se encontrar o CEP, false se não encontrar
      */
-    public static boolean configuraEndereco(String cep, ItfLocal pLocal) {
+    public static boolean configuraEndereco(String cep, ComoLocal pLocal) {
         try {
             WebServiceCepRepublicaVirtual republicaVirtual = WebServiceCepRepublicaVirtual.searchCep(cep);
 
