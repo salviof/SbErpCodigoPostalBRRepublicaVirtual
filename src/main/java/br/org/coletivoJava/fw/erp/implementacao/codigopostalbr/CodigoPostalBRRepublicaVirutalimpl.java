@@ -10,7 +10,7 @@ public class CodigoPostalBRRepublicaVirutalimpl implements br.org.coletivoJava.f
 
     @Override
     public boolean configuraEndereco(String cep, ComoLocal pLocal) {
-        return UtilSBCoreCEPRepublicaVirtual.configuraEndereco(cep, pLocal);
+        return UtilCRCCEPRepublicaVirtual.configuraEndereco(cep, pLocal);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class CodigoPostalBRRepublicaVirutalimpl implements br.org.coletivoJava.f
 
     @Override
     public boolean isCepExiste(String pCep) {
-        return UtilSBCoreCEPRepublicaVirtual.cepExiste(pCep);
+        return UtilCRCCEPRepublicaVirtual.cepExiste(pCep);
     }
 
     @Override

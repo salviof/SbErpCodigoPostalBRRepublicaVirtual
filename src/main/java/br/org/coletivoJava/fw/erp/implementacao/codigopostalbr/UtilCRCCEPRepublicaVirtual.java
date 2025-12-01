@@ -15,7 +15,7 @@ import java.util.List;
  *
  * @author desenvolvedor
  */
-public abstract class UtilSBCoreCEPRepublicaVirtual {
+public abstract class UtilCRCCEPRepublicaVirtual {
 
     /**
      *
